@@ -36,9 +36,6 @@ def callback():
     # Ler as tracks salvas do usuário
     results = sp.current_user_saved_tracks()
 
-    # Pegar a lista de músicas das Descobertas da Semana original
-    discover_weekly = sp.user_playlist('spotify', '37i9dQZEVXcNaMmYylhqug')
-
     # Pegar a lista de músicas da playlist, se já criada anteriormente
     playlist_name = "Baú de descobertas"
     playlists = sp.user_playlists(sp.current_user()['id'])
@@ -56,18 +53,13 @@ def callback():
     playlist_tracks = sp.playlist_tracks(playlist_id)
     playlist_tracks_ids = [track['track']['id'] for track in playlist_tracks['items']]
     track_uris = []
-    
-    # Adicionar todas as músicas da playlist de Descobertas à playlist automatizada
-    for track in discover_weekly['tracks']['items']:
+    for track in results['items']:
         if track['track']['id'] not in playlist_tracks_ids:
             track_uris.append(track['track']['uri'])
-    
     if track_uris:
         sp.playlist_add_items(playlist_id, track_uris)
-    
-    playlist_url = f"https://open.spotify.com/playlist/{playlist_id}"
 
-    return render_template('update_file.html', playlist_name=playlist_name, playlist_url = playlist_url)
+    return 'Playlist atualizada: <a href="https://open.spotify.com/playlist/{}">{}</a>'.format(playlist_id, playlist_name)
 
 # Flask route pro botão de criar a playlist
 @app.route('/')
