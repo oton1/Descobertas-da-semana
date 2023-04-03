@@ -25,6 +25,10 @@
                 padding: 50px;
                 text-align: center;
                 width: 80%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
             }
             .btn {
                 display: inline-block;
@@ -43,8 +47,8 @@
   <body>
     <div class="container">
       <h1>Playlist Atualizada: {{ playlist_name }}</h1>
-      <p>A sua playlist "{{ playlist_name }}" foi atualizada com as descobertas da semana!</p>
-      <a href="{{ playlist_url }}" target="_blank" class="btn">Ver playlist</a>
+      <iframe src="https://open.spotify.com/embed/playlist/1HXeiIPG2L1zyHgRth1r8I?utm_source=oembed" style="top: 0; left: 0; width: 40%; height: 50%; position: bottom; border: 0;" allowfullscreen allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture;"></iframe>
+      <a href="{{ playlist_url }}" target="_blank" class="btn">Acessar playlist</a>
     </div>
   </body>
 </html>
