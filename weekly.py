@@ -1,8 +1,12 @@
+#!/usr/bin/env python3
+
 from flask import Flask, redirect, request, render_template
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import os
 from dotenv import load_dotenv
+import webbrowser
+import threading
 
 load_dotenv()
 
@@ -75,6 +79,9 @@ def callback():
 def index():
     return render_template('index.html')
 
-# Dar run no Flask app
+def open_browser():
+    webbrowser.open('http://127.0.0.1:8080/', new=1)
+
 if __name__ == '__main__':
+    threading.Timer(1, open_browser).start()
     app.run(port=8080, debug=True)
