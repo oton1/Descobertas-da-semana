@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 from flask import Flask, redirect, request, render_template
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
@@ -15,7 +13,7 @@ app = Flask(__name__, template_folder='templates')
 # Credenciais da API e  Scopes
 CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
-REDIRECT_URI = os.getenv('REDIRECT_URI')
+REDIRECT_URI = "http://localhost:8080/callback"
 SCOPE = 'playlist-read-private playlist-modify-public user-library-modify user-library-read'
 
 # Criação do cliente OAuth
