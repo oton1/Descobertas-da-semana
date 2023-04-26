@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Descobertas da semana</title>
+    <style>
+        body {
+            background-color: #070000;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #1DB954;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .container {
+            background-color: #070000;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            margin: auto;
+            margin-top: 50px;
+            padding: 50px;
+            text-align: center;
+            width: 600px;
+        }
+        button {
+            background-color: #1DB954;
+            border: none;
+            border-radius: 3px;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            transition: background-color 0.2s ease-in-out;
+        }
+        button:hover {
+            background-color: #1ED760;
+        }
+        .playlist-link {
+            color: #1DB954;
+            text-decoration: none;
+        }
+        .playlist-link:hover {
+            color: #1ED760;
+        }
+    </style>
+</head>
+<body>
+    <h1>Descobertas da semana</h1>
+    <div class="container">
+        {% if playlist_name %}
+            <p style="color:#FFFFFF;">Playlist atualizada: <a class="playlist-link" href="https://open.spotify.com/playlist/{{ playlist_id }}">{{ playlist_name }}</a></p>
+        {% else %}
+            <p style="color:#FFFFFF;">Clique no botão abaixo para criar a playlist com as suas descobertas da semana no Spotify.</p>
+            <form action="{{ url_for('authorize') }}" method="GET">
+                <button type="submit">Criar playlist</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

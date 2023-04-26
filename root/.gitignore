@@ -3,3 +3,11 @@ sample.env
 descobertas.py
 .cache
 .env
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pyzw

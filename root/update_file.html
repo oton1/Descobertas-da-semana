@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Playlist Atualizada: {{ playlist_name }}</title>
+        <style>
+            body {
+                background-color: #070000;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                color: #1DB954;
+                margin-top: 50px;
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            .container {
+                background-color: #070000;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+                margin: auto;
+                margin-top: 50px;
+                padding: 50px;
+                text-align: center;
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .btn {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #1DB954;
+                color: #FFFFFF;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.2s ease-in-out;
+            }
+            .btn:hover {
+                background-color: #1ED760;
+            }
+        </style>
+    </head>    
+  <body>
+    <div class="container">
+      <h1>Playlist Atualizada: {{ playlist_name }}</h1>
+      <iframe src="https://open.spotify.com/embed/playlist/1HXeiIPG2L1zyHgRth1r8I?utm_source=oembed" style="top: 0; left: 0; width: 40%; height: 50%; position: bottom; border: 0;" allowfullscreen allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture;"></iframe>
+      <a href="{{ playlist_url }}" target="_blank" class="btn">Acessar playlist</a>
+    </div>
+  </body>
+</html>
